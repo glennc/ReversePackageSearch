@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="ReversePackageSearch" data-url-base="@Url.Content("~/")">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/js/respond.src.js"></script>
+    <script src="~/js/modernizr.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="container">
+            @RenderBody()
+        </div>
+        <div id="push"></div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <p class="muted credit">Reverse package search for ASP.NET vNext packages. Search for a type/member and it will search for a package.</p>
+        </div>
+    </div>
+
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

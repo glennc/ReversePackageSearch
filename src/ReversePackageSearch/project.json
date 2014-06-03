@@ -1,0 +1,20 @@
+﻿{
+    "dependencies": {
+        "Helios": "0.1-alpha-*",
+        "Microsoft.AspNet.Mvc": "0.1-alpha-*",        
+        "NuGet.Indexing": "3.0.12-*",
+        "Lucene.Net.Store.Azure" : "2.0.4937.26631",
+        "Microsoft.AspNet.StaticFiles": "0.1-alpha-*",
+        "Microsoft.AspNet.Configuration": "0.1-alpha-*",
+        "Microsoft.Framework.OptionsModel" : "0.1-alpha-*"
+    }, 
+    "commands": {
+        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5002"
+    },
+    "configurations": {
+        "net45": {
+            "dependencies": {
+            }
+        }
+    }
+}

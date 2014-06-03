@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Reverse Package Search";
+}
+
+<div ng-controller="SearchController">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <form class="form-inline" role="form" ng-submit="search(searchTerms)">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" ng-model="searchTerms" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div ng-if="results.length <= 50" class="panel-heading">Results: {{results.length}}</div>
+            <div ng-if="results.length > 50" class="panel-heading">Results: more than 50</div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Package Name</th>
+                            <th>Full Type Name</th>
+                            <th>Return Type</th>
+                            <th>Signature</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="result in results">
+                            <td>
+                                {{result.PackageName}}
+                            </td>
+                            <td>
+                                {{result.FullTypeName}}
+                            </td>
+                            <td>
+                                {{result.ReturnType}}
+                            </td>
+                            <td>
+                                {{result.Signature}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/angular.js"></script>
+    <script src="~/js/angular-route.js"></script>
+    <script src="~/js/app.js"></script>
+}

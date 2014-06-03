@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Reverse Package Search";
+}
+
+<div ng-controller="SearchController">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <form class="form-inline" role="form" ng-submit="search(searchTerms)">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" ng-model="searchTerms" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div ng-if="results.length < 50" class="panel-heading">Results: {{results.length}}</div>
+            <div ng-if="results.length === 50" class="panel-heading">Results: 50 or more</div>
+            <div class="panel-body">
+                <table class="table table-striped cw-table-list">
+                    <thead>
+                        <tr>
+                            <th class="col-md-3">Package Name</th>
+                            <th class="col-md-4">Full Type Name</th>
+                            <th class="col-md-2">Return Type</th>
+                            <th class="col-md-3">Signature</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="result in results">
+                            <td class="col-md-3">
+                                <a href="http://www.myget.org/feed/aspnetvnext/package/{{result.PackageName}}">{{result.PackageName}}</a>
+                            </td>
+                            <td class ="col-md-4">
+                                {{result.FullTypeName}}
+                            </td>
+                            <td class="col-md-2">
+                                {{result.ReturnType}}
+                            </td>
+                            <td class="col-md-3">
+                                {{result.Signature}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/angular.js"></script>
+    <script src="~/js/angular-route.js"></script>
+    <script src="~/js/app.js"></script>
+}
